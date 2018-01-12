@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Calculator View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainCalculatorViewController" customModule="CalculatorRemake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyx-d6-Yv6" userLabel="Button View">
+                                <rect key="frame" x="10" y="338" width="748" height="676"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frq-Eb-9tx" userLabel="Clear" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="204.5" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Pqw-Zd-Zox"/>
+                                            <constraint firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="width" multiplier="1:1" id="wVW-hy-rGV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="AC">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jqp-ZN-ejR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-S7-LLK" userLabel="Positive Negative" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="294.5" y="0.0" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="+/-">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressPositiveNegative:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bWl-pL-EK3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBk-br-wOI" userLabel="Percent" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="384.5" y="0.0" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="%">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressPercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LRj-xe-nc2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNH-oN-F5j" userLabel="Divide" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="474.5" y="0.0" width="80" height="80"/>
+                                        <color key="backgroundColor" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="÷">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressDivide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ecM-UE-TbR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-YS-Hp6" userLabel="Multiply" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="474.5" y="88" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="×">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressMultiply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wvI-j7-RuK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnJ-qw-Ipe" userLabel="Subtract" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="474.5" y="178" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="−">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressSubtract:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jO3-yf-otu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pST-IN-5hw" userLabel="Addition" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="474.5" y="268" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressAddition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6r-O9-QUG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfA-7D-FFw" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="204.5" y="88" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="7">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.19226951897144318" green="0.19226449728012085" blue="0.19226548075675964" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJn-MF-si3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xI2-Wc-wKg" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="204.5" y="178" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="4">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEz-cr-sn9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohj-pg-gmu" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="204.5" y="268" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MCg-IG-D4f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuR-4A-lfn" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="204.5" y="358" width="170" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <inset key="titleEdgeInsets" minX="26" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusDivision">
+                                                <real key="value" value="4.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eGh-zc-16h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANT-Bn-7Gp" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="294.5" y="268" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="2">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5F-zm-Pvj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ln-8Z-5lu" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="384.5" y="268" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MU-j7-hBj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKZ-lM-SmO" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="382.5" y="358" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <state key="normal" title=".">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressDecimal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="juQ-vy-MeL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-WN-MwT" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="294.5" y="178" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="5">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vta-us-SNi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQq-iQ-CGn" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="384.5" y="178" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="6">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ajy-UB-fOb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apb-Ma-ub2" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="294.5" y="88" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="8">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nEQ-3h-FV0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn9-JT-McQ" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="384.5" y="88" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="9">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.192269519" green="0.1922644973" blue="0.1922654808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EkP-gu-ll6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGs-4g-sxy" userLabel="Equals" customClass="CalculatorButton" customModule="CalculatorRemake" customModuleProvider="target">
+                                        <rect key="frame" x="472.5" y="358" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="=">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="0.87152814869999995" green="0.61520379780000001" blue="0.30970522760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressEquals:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z5L-6V-h9o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kKZ-lM-SmO" firstAttribute="top" secondItem="BuR-4A-lfn" secondAttribute="top" id="0sb-sD-rBU"/>
+                                    <constraint firstItem="Yn9-JT-McQ" firstAttribute="top" secondItem="CfA-7D-FFw" secondAttribute="top" id="1Jn-lX-kKB"/>
+                                    <constraint firstItem="CfA-7D-FFw" firstAttribute="top" secondItem="frq-Eb-9tx" secondAttribute="bottom" constant="8" id="1ob-pc-dmz"/>
+                                    <constraint firstItem="ohj-pg-gmu" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="1tZ-bs-O34"/>
+                                    <constraint firstItem="qGs-4g-sxy" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="2Od-bh-3hF"/>
+                                    <constraint firstItem="4ln-8Z-5lu" firstAttribute="top" secondItem="ohj-pg-gmu" secondAttribute="top" id="3cc-h6-3EF"/>
+                                    <constraint firstItem="CfA-7D-FFw" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="4ra-9H-zpd"/>
+                                    <constraint firstItem="yBk-br-wOI" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="56x-sx-SO0"/>
+                                    <constraint firstItem="ohj-pg-gmu" firstAttribute="top" secondItem="xI2-Wc-wKg" secondAttribute="bottom" constant="10" id="5JQ-vb-Hvl"/>
+                                    <constraint firstItem="ANT-Bn-7Gp" firstAttribute="leading" secondItem="ohj-pg-gmu" secondAttribute="trailing" constant="10" id="6pC-pv-rjZ"/>
+                                    <constraint firstItem="ffe-WN-MwT" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="7Ix-5H-39y"/>
+                                    <constraint firstItem="yBk-br-wOI" firstAttribute="leading" secondItem="f0t-S7-LLK" secondAttribute="trailing" constant="10" id="7qK-t1-Zb4"/>
+                                    <constraint firstItem="pST-IN-5hw" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="9TW-H6-EzL"/>
+                                    <constraint firstItem="ANT-Bn-7Gp" firstAttribute="top" secondItem="ohj-pg-gmu" secondAttribute="top" id="AsE-O7-Nbv"/>
+                                    <constraint firstItem="ANT-Bn-7Gp" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="BdA-bP-B9j"/>
+                                    <constraint firstItem="ohj-pg-gmu" firstAttribute="leading" secondItem="xI2-Wc-wKg" secondAttribute="leading" id="C11-kE-LoQ"/>
+                                    <constraint firstItem="yBk-br-wOI" firstAttribute="top" secondItem="f0t-S7-LLK" secondAttribute="top" id="DId-Ri-Vz6"/>
+                                    <constraint firstItem="TNH-oN-F5j" firstAttribute="leading" secondItem="yBk-br-wOI" secondAttribute="trailing" constant="10" id="Eee-zT-Pih"/>
+                                    <constraint firstItem="CfA-7D-FFw" firstAttribute="leading" secondItem="frq-Eb-9tx" secondAttribute="leading" id="EfL-6j-UET"/>
+                                    <constraint firstItem="xI2-Wc-wKg" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="Fmn-Av-Ahb"/>
+                                    <constraint firstItem="Yn9-JT-McQ" firstAttribute="leading" secondItem="Apb-Ma-ub2" secondAttribute="trailing" constant="10" id="Hnl-Lc-KZH"/>
+                                    <constraint firstItem="wnJ-qw-Ipe" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="I9v-Hg-Hul"/>
+                                    <constraint firstItem="zQq-iQ-CGn" firstAttribute="leading" secondItem="ffe-WN-MwT" secondAttribute="trailing" constant="10" id="J2I-fk-191"/>
+                                    <constraint firstItem="qGs-4g-sxy" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="J8Q-Tv-NXh"/>
+                                    <constraint firstItem="4ln-8Z-5lu" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="KTd-tn-kbd"/>
+                                    <constraint firstItem="pST-IN-5hw" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="Kp5-bs-ZHr"/>
+                                    <constraint firstItem="xI2-Wc-wKg" firstAttribute="top" secondItem="CfA-7D-FFw" secondAttribute="bottom" constant="10" id="KqM-ou-kCd"/>
+                                    <constraint firstItem="kKZ-lM-SmO" firstAttribute="leading" secondItem="BuR-4A-lfn" secondAttribute="trailing" constant="8" id="L7b-S7-58r"/>
+                                    <constraint firstItem="TNH-oN-F5j" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="LdV-HV-tAu"/>
+                                    <constraint firstItem="yBk-br-wOI" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="LrD-f5-hzi"/>
+                                    <constraint firstItem="wnJ-qw-Ipe" firstAttribute="leading" secondItem="zQq-iQ-CGn" secondAttribute="trailing" constant="10" id="Lx3-55-V3y"/>
+                                    <constraint firstItem="ffe-WN-MwT" firstAttribute="leading" secondItem="xI2-Wc-wKg" secondAttribute="trailing" constant="10" id="MBI-VK-AZU"/>
+                                    <constraint firstItem="TNH-oN-F5j" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="NcQ-Kf-EFJ"/>
+                                    <constraint firstItem="BuR-4A-lfn" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="P0Z-Co-SHm"/>
+                                    <constraint firstItem="Apb-Ma-ub2" firstAttribute="leading" secondItem="CfA-7D-FFw" secondAttribute="trailing" constant="10" id="Q11-42-5lM"/>
+                                    <constraint firstItem="ANT-Bn-7Gp" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="RHb-Xp-qhp"/>
+                                    <constraint firstItem="pDV-YS-Hp6" firstAttribute="top" secondItem="CfA-7D-FFw" secondAttribute="top" id="Tfd-pw-jAL"/>
+                                    <constraint firstItem="zQq-iQ-CGn" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="Tii-uc-nl7"/>
+                                    <constraint firstItem="kKZ-lM-SmO" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="WCM-iQ-cF9"/>
+                                    <constraint firstItem="xI2-Wc-wKg" firstAttribute="leading" secondItem="CfA-7D-FFw" secondAttribute="leading" id="XHH-ZN-yZh"/>
+                                    <constraint firstItem="zQq-iQ-CGn" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="YgB-44-xTN"/>
+                                    <constraint firstItem="Yn9-JT-McQ" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="ZpT-bf-ynS"/>
+                                    <constraint firstItem="TNH-oN-F5j" firstAttribute="top" secondItem="yBk-br-wOI" secondAttribute="top" id="aTw-qT-b1d"/>
+                                    <constraint firstItem="f0t-S7-LLK" firstAttribute="leading" secondItem="frq-Eb-9tx" secondAttribute="trailing" constant="10" id="aUJ-UT-8Jl"/>
+                                    <constraint firstItem="ffe-WN-MwT" firstAttribute="top" secondItem="xI2-Wc-wKg" secondAttribute="top" id="bJl-7F-HkQ"/>
+                                    <constraint firstItem="Apb-Ma-ub2" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="cTd-MY-ZqQ"/>
+                                    <constraint firstItem="qGs-4g-sxy" firstAttribute="leading" secondItem="kKZ-lM-SmO" secondAttribute="trailing" constant="10" id="caH-Pc-Fsy"/>
+                                    <constraint firstItem="frq-Eb-9tx" firstAttribute="top" secondItem="Hyx-d6-Yv6" secondAttribute="top" id="dIn-Tx-3om"/>
+                                    <constraint firstItem="f0t-S7-LLK" firstAttribute="top" secondItem="frq-Eb-9tx" secondAttribute="top" id="dO6-yP-TQ6"/>
+                                    <constraint firstItem="wnJ-qw-Ipe" firstAttribute="top" secondItem="xI2-Wc-wKg" secondAttribute="top" id="eVk-Cg-GLu"/>
+                                    <constraint firstItem="kKZ-lM-SmO" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="ev6-xD-wlO"/>
+                                    <constraint firstItem="Apb-Ma-ub2" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="fWc-7x-xFX"/>
+                                    <constraint firstItem="ffe-WN-MwT" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="i2C-Hf-Ic2"/>
+                                    <constraint firstItem="4ln-8Z-5lu" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="iKC-CR-5VB"/>
+                                    <constraint firstItem="xI2-Wc-wKg" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="j1L-ts-ytb"/>
+                                    <constraint firstItem="4ln-8Z-5lu" firstAttribute="leading" secondItem="ANT-Bn-7Gp" secondAttribute="trailing" constant="10" id="lCt-CH-h7k"/>
+                                    <constraint firstItem="BuR-4A-lfn" firstAttribute="top" secondItem="ohj-pg-gmu" secondAttribute="bottom" constant="10" id="mS5-SV-Rg8"/>
+                                    <constraint firstItem="BuR-4A-lfn" firstAttribute="trailing" secondItem="ANT-Bn-7Gp" secondAttribute="trailing" id="nNp-Fa-QLM"/>
+                                    <constraint firstItem="Yn9-JT-McQ" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="otD-pW-VVd"/>
+                                    <constraint firstItem="ohj-pg-gmu" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="pQU-7e-Esf"/>
+                                    <constraint firstItem="pDV-YS-Hp6" firstAttribute="leading" secondItem="Yn9-JT-McQ" secondAttribute="trailing" constant="10" id="pcB-Fh-BVb"/>
+                                    <constraint firstItem="Apb-Ma-ub2" firstAttribute="top" secondItem="CfA-7D-FFw" secondAttribute="top" id="qx0-E0-gs9"/>
+                                    <constraint firstItem="BuR-4A-lfn" firstAttribute="leading" secondItem="ohj-pg-gmu" secondAttribute="leading" id="rBO-st-glT"/>
+                                    <constraint firstItem="CfA-7D-FFw" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="twQ-Fd-LC4"/>
+                                    <constraint firstItem="pDV-YS-Hp6" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="tx3-DN-sXN"/>
+                                    <constraint firstItem="pST-IN-5hw" firstAttribute="top" secondItem="ohj-pg-gmu" secondAttribute="top" id="uFK-Hg-BqA"/>
+                                    <constraint firstItem="zQq-iQ-CGn" firstAttribute="top" secondItem="xI2-Wc-wKg" secondAttribute="top" id="v6T-u3-Wmf"/>
+                                    <constraint firstItem="pDV-YS-Hp6" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="vjq-CR-vd9"/>
+                                    <constraint firstItem="qGs-4g-sxy" firstAttribute="top" secondItem="BuR-4A-lfn" secondAttribute="top" id="wBG-bd-kPX"/>
+                                    <constraint firstItem="f0t-S7-LLK" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="xLq-m8-SyU"/>
+                                    <constraint firstItem="pST-IN-5hw" firstAttribute="leading" secondItem="4ln-8Z-5lu" secondAttribute="trailing" constant="10" id="y8O-8A-9OB"/>
+                                    <constraint firstItem="wnJ-qw-Ipe" firstAttribute="height" secondItem="frq-Eb-9tx" secondAttribute="height" id="yEF-7a-OJp"/>
+                                    <constraint firstItem="f0t-S7-LLK" firstAttribute="width" secondItem="frq-Eb-9tx" secondAttribute="width" id="z0d-II-xIP"/>
+                                    <constraint firstItem="f0t-S7-LLK" firstAttribute="centerX" secondItem="Hyx-d6-Yv6" secondAttribute="centerX" constant="-40" id="zfm-tG-b8B"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blu-s5-IqC" userLabel="Entry Label" customClass="NumberOutputLabel" customModule="CalculatorRemake" customModuleProvider="target">
+                                <rect key="frame" x="214.5" y="221" width="350" height="107"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Entry Label"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="90"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hyx-d6-Yv6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="1S5-jp-C2h"/>
+                            <constraint firstItem="Hyx-d6-Yv6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="5pG-Kj-dpq"/>
+                            <constraint firstItem="blu-s5-IqC" firstAttribute="leading" secondItem="frq-Eb-9tx" secondAttribute="leading" id="8Dt-Il-89H"/>
+                            <constraint firstItem="Hyx-d6-Yv6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.66" id="fRO-XR-KGJ"/>
+                            <constraint firstItem="Hyx-d6-Yv6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="ouh-UP-gvY"/>
+                            <constraint firstItem="Hyx-d6-Yv6" firstAttribute="top" secondItem="blu-s5-IqC" secondAttribute="bottom" constant="10" id="rQ6-zf-BpA"/>
+                            <constraint firstItem="blu-s5-IqC" firstAttribute="trailing" secondItem="TNH-oN-F5j" secondAttribute="trailing" id="v05-hX-Q9K"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="calculatorButtonWidthConstraint" destination="Pqw-Zd-Zox" id="Vrb-1c-wHl"/>
+                        <outlet property="entryLabel" destination="blu-s5-IqC" id="bi0-05-Gi5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
+        </scene>
+    </scenes>
+</document>
