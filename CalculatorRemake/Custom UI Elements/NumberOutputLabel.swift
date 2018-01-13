@@ -11,11 +11,11 @@ import UIKit
 
 
 
-/// Custom label that formats the text of the label so that is user friendly or consumable for computation
+/// Custom label that formats the text of the label so that it is user friendly and consumable for computation
 final class NumberOutputLabel: UILabel {
     
     private let maximumCount = 11
-    private let startingFontSize:CGFloat = 90 // default 80 to fit iphone7/8 size devices best
+    private let startingFontSize:CGFloat = 90 // default 90 to fit iphone7/8 size devices best
     
     
     /// Number formatter with scientific style
@@ -108,7 +108,7 @@ final class NumberOutputLabel: UILabel {
         
         // first get the number from the text so we can re-format  and calculate the amount as needed
         if let number = NumberOutputLabel.decimalFormatter.number(from: stripCommas(fromString:string)) {
-            if number.doubleValue > 999999999 && !isUserEntry {
+            if (number.doubleValue > 999999999 || number.doubleValue < -999999999) && !isUserEntry {
                 // numbers a million or more will not fit easily on screen, so switch for scientific if we calculated the solution
                 setTextForScientific(fromNumber: number)
             } else {

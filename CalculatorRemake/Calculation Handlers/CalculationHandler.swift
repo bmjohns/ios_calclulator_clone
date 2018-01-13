@@ -42,9 +42,11 @@ struct CalculationHandler {
 
     /// Perform necessary actions for the utility operation(clear, equals)
     ///
-    /// - Parameter operation: UtilityOperation to be performed
+    /// - Parameters:
+    ///   - operation: UtilityOperation to be performed
+    ///   - number: number that will be used to calculate
     /// - Returns: Double of the calculated solution, nil if no solution provided
-    static func calculateUtilityOperation(operation:UtilityOperation) -> Double? {
+    static func calculateUtilityOperation(operation:UtilityOperation, withNumber number:Double?) -> Double? {
         
         var calculatedValue: Double?
         switch operation {
@@ -53,8 +55,14 @@ struct CalculationHandler {
             calculatedValue = 0
         case .equals:
             calculatedValue = calculate()
-        default:
-            break
+        case .percent:
+            if let number = number {
+                calculatedValue = percent(ofDouble: number)
+            }
+        case .positiveNegative:
+            if let number = number {
+                calculatedValue = changePositiveNegativeStatus(ofDouble: number)
+            }
         }
         return calculatedValue
     }
@@ -156,7 +164,7 @@ struct CalculationHandler {
     /// Give the percent value of the second entry
     ///
     /// - Returns: Percent number
-    static func percent(ofDouble double: Double) -> Double {
+    private static func percent(ofDouble double: Double) -> Double {
         
         var solution = 0.0
         solution = double * 0.01
@@ -176,7 +184,7 @@ struct CalculationHandler {
     ///
     /// - Parameter double: Double to be switched
     /// - Returns: New number
-    static func changePositiveNegativeStatus(ofDouble double:Double) -> Double {
+    private static func changePositiveNegativeStatus(ofDouble double:Double) -> Double {
         
         let changedDouble = double * -1
         return changedDouble

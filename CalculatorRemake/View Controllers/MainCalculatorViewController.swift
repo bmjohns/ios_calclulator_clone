@@ -46,9 +46,7 @@ class MainCalculatorViewController: UIViewController {
     @IBAction func didPressClear(_ sender: CalculatorButton) {
         
         selectNewButton(nil)
-        if let value = CalculationHandler.calculateUtilityOperation(operation: .clear) {
-            entryLabel.calculatedValue = "\(value)"
-        }
+       handleUtilityOperation(.clear, withNumber: entryLabel.numberRaw)
     }
     
     /// User pressed the positive/negative button.
@@ -56,9 +54,7 @@ class MainCalculatorViewController: UIViewController {
     /// - Parameter sender: CalculatorButton that was pressed
     @IBAction func didPressPositiveNegative(_ sender: CalculatorButton) {
         
-        if let number = entryLabel.numberRaw {
-            entryLabel.userEnteredValue = "\(CalculationHandler.changePositiveNegativeStatus(ofDouble: number))"
-        }
+        handleUtilityOperation(.positiveNegative, withNumber: entryLabel.numberRaw)
     }
     
     /// User pressed the percent button.
@@ -66,9 +62,7 @@ class MainCalculatorViewController: UIViewController {
     /// - Parameter sender: CalculatorButton that was pressed
     @IBAction func didPressPercent(_ sender: CalculatorButton) {
         
-        if let number = entryLabel.numberRaw {
-            entryLabel.calculatedValue = "\(CalculationHandler.percent(ofDouble: number))"
-        }
+        handleUtilityOperation(.percent, withNumber: entryLabel.numberRaw)
     }
     
     /// User pressed the divide button.
@@ -151,13 +145,38 @@ class MainCalculatorViewController: UIViewController {
             CalculationHandler.firstEntry = entryLabel.numberRaw
         }
         
-        if let value = CalculationHandler.calculateUtilityOperation(operation: .equals) {
+        if let value = CalculationHandler.calculateUtilityOperation(operation: .equals,
+                                                                    withNumber :nil) {
             entryLabel.calculatedValue = "\(value)"
             CalculationHandler.firstEntry = value
         }
         isClearingOnNumberPress = true
     }
     
+    
+    /// Handles utility operations like clear, equals, percent, and negative.
+    ///
+    /// - Parameters:
+    ///   - utilityOperation: UtilityOperation to be performed
+    ///   - number: Number to be calculated. Not needed for equals and clear
+    func handleUtilityOperation(_ utilityOperation: UtilityOperation, withNumber number: Double?) {
+        
+        if let calculatedNumber = CalculationHandler.calculateUtilityOperation(operation: utilityOperation,
+                                                                               withNumber: number) {
+            entryLabel.calculatedValue = "\(calculatedNumber)"
+            
+            switch utilityOperation {
+            case .percent, .positiveNegative:
+                // overwite saved entry if already saved to properly handle next operation
+                if CalculationHandler.firstEntry != nil {
+                    CalculationHandler.firstEntry = calculatedNumber
+                }
+            default:
+                // other take no action
+                break
+            }
+        }
+    }
     
     /// Handles the selection of a new Operation. involves changing the selection state of the button and making any calculations if necessary.
     ///

@@ -36,6 +36,21 @@ class CalculationTests: XCTestCase {
         super.tearDown()
     }
     
+    func testOrderOfOperations() {
+        
+        let app = XCUIApplication()
+        app.buttons["9"].tap()
+        app.buttons["+"].tap()
+        let button1 = app.buttons["1"]
+        button1.tap()
+        app.buttons["×"].tap()
+        button1.tap()
+        app.buttons["0"].tap()
+        app.buttons["="].tap()
+
+        XCTAssert(app.staticTexts["100"].exists)
+    }
+    
     func testAddition() {
 
         let app = XCUIApplication()
@@ -227,6 +242,27 @@ class CalculationTests: XCTestCase {
         XCTAssert(app.staticTexts["999,999,999"].exists)
     }
     
+    func testScientificNegative() {
+        
+        let app = XCUIApplication()
+        let button = app.buttons["9"]
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        button.tap()
+        
+        app.buttons["×"].tap()
+        app.buttons["2"].tap()
+        app.buttons["="].tap()
+        app.buttons["+/-"].tap()
+        XCTAssert(app.staticTexts["-2e9"].exists)
+    }
+    
     func testScientificNotation() {
         
         let app = XCUIApplication()
@@ -271,6 +307,48 @@ class CalculationTests: XCTestCase {
         button4.tap()
         button4.tap()
         XCTAssert(app.staticTexts["16"].exists)
+    }
+    
+    func testMultipleOperations() {
+        
+        let app = XCUIApplication()
+        app.buttons["3"].tap()
+        let plusButton = app.buttons["+"]
+        plusButton.tap()
+        app.buttons["6"].tap()
+        let subtractButton = app.buttons["−"]
+        subtractButton.tap()
+        let button2 = app.buttons["2"]
+        button2.tap()
+        app.buttons["×"].tap()
+        app.buttons["5"].tap()
+        subtractButton.tap()
+        let button1 = app.buttons["1"]
+        button1.tap()
+        let button0 = app.buttons["0"]
+        button0.tap()
+        button0.tap()
+        button0.tap()
+        let buttonEquals = app.buttons["="]
+        buttonEquals.tap()
+        XCTAssert(app.staticTexts["-965"].exists)
+
+        app.buttons["+/-"].tap()
+        plusButton.tap()
+        button1.tap()
+        button0.tap()
+        button0.tap()
+        buttonEquals.tap()
+        
+        app.buttons["%"].tap()
+        XCTAssert(app.staticTexts["10.65"].exists)
+        
+        let divideButton = app.buttons["÷"]
+        divideButton.tap()
+        button2.tap()
+        buttonEquals.tap()
+        buttonEquals.tap()
+        XCTAssert(app.staticTexts["2.6625"].exists)
     }
     
 }
