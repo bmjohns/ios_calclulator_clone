@@ -10,8 +10,10 @@
 ### How do I get set up? ###
 
 * Clone project onto Mac that has Xcode v9 installed
-* Open "StockTestApp.xcworkspace" from project
+* Open "CalculatorRemake.xcodeproj" from project
 * Run project in iOS 10+ simulator/device
+   * if running on device you will need to sign it with your own developer account
+   * Xcode -> project settings -> general -> (change team)
 
 ### Project Details ###
 
