@@ -206,7 +206,7 @@ class CalculationTests: XCTestCase {
         app.buttons["="].tap()
         
 
-        XCTAssert(app.staticTexts["3.6666667"].exists)
+        XCTAssert(app.staticTexts["3.66666667"].exists)
     }
     
     func testPercent() {
@@ -307,6 +307,29 @@ class CalculationTests: XCTestCase {
         button4.tap()
         button4.tap()
         XCTAssert(app.staticTexts["16"].exists)
+    }
+    
+    func testMaxmimumDecimal() {
+        
+        let app = XCUIApplication()
+        let button = app.buttons["9"]
+        button.tap()
+        app.buttons["."].tap()
+         button.tap()
+         button.tap()
+         button.tap()
+         button.tap()
+         button.tap()
+         button.tap()
+         button.tap()
+         button.tap()
+        app.buttons["5"].tap()
+        app.buttons["3"].tap()
+        app.buttons["2"].tap()
+        XCTAssert(app.staticTexts["9.99999999"].exists)
+        
+        app.buttons["+/-"].tap()
+        XCTAssert(app.staticTexts["-10"].exists)
     }
     
     func testMultipleOperations() {

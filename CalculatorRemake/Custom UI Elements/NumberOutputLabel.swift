@@ -14,7 +14,6 @@ import UIKit
 /// Custom label that formats the text of the label so that it is user friendly and consumable for computation
 final class NumberOutputLabel: UILabel {
     
-    private let maximumCount = 11
     private let startingFontSize:CGFloat = 90 // default 90 to fit iphone7/8 size devices best
     
     
@@ -34,7 +33,7 @@ final class NumberOutputLabel: UILabel {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 7
+        numberFormatter.maximumFractionDigits = 8
         
         return numberFormatter
     }
@@ -43,13 +42,15 @@ final class NumberOutputLabel: UILabel {
         didSet {
             // depending on text size decrease font so that more characters fit on the screen
             if let text = text {
-                if text.count > maximumCount {
-                    font = UIFont.systemFont(ofSize: startingFontSize - 35, weight: .thin)
-                } else if text.count == maximumCount { // TODO: Make this based on text fitting, not count
-                    font = UIFont.systemFont(ofSize: startingFontSize - 30, weight: .thin)
-                } else if text.count >= 9 {
-                    font = UIFont.systemFont(ofSize: startingFontSize - 25, weight: .thin)
-                } else if text.count >= 8 {
+                if text.count >= 12 { // TODO: Make this based on text fitting, not count
+                    font = UIFont.systemFont(ofSize: startingFontSize - 38, weight: .thin)
+                } else if text.count == 11 {
+                    font = UIFont.systemFont(ofSize: startingFontSize - 33, weight: .thin)
+                } else if text.count == 10 {
+                    font = UIFont.systemFont(ofSize: startingFontSize - 28, weight: .thin)
+                } else if text.count == 9 {
+                    font = UIFont.systemFont(ofSize: startingFontSize - 18, weight: .thin)
+                } else if text.count == 8 {
                     font = UIFont.systemFont(ofSize: startingFontSize - 15, weight: .thin)
                 } else {
                     font = UIFont.systemFont(ofSize: startingFontSize, weight: .thin)
@@ -112,11 +113,11 @@ final class NumberOutputLabel: UILabel {
                 // numbers a million or more will not fit easily on screen, so switch for scientific if we calculated the solution
                 setTextForScientific(fromNumber: number)
             } else {
-                setTextForDecmalIfAppropriate(fromNumber: number)
+                setTextForDecmalIfAppropriate(fromNumberString: string,
+                                              isUserEntry: isUserEntry)
             }
         }
     }
-    
     
     /// Conditionally sets the text for scientific format
     ///
@@ -133,18 +134,66 @@ final class NumberOutputLabel: UILabel {
     /// Conditionally sets the text for decimal format
     ///
     /// - Parameter number: NSNumber that should be set in decimal format
-    private func setTextForDecmalIfAppropriate(fromNumber number: NSNumber) {
+    
+    
+    /// Conditionally sets the text for decimal format
+    ///
+    /// - Parameters:
+    ///   - numberString: String that should be set in decimal format
+    ///   - isUserEntry: Bool true if this was user entered text. False if being set programmatically by calculation
+    private func setTextForDecmalIfAppropriate(fromNumberString numberString:String, isUserEntry: Bool) {
         
-        if let decimalString = NumberOutputLabel.decimalFormatter.string(from: number),
-            decimalString.count <= maximumCount
-                || (decimalString.contains("-") && decimalString.count == maximumCount + 1) { // if changing to a negative, allow one more character
-            var formattedString = decimalString
-            // we don't want to show decimal when value is 0
-            if decimalString == "0.0" {
-                formattedString = "0"
-            }
-            text = formattedString
+        let strippedNumberString = stripCommas(fromString: numberString)
+        let numberFormatter = adjustedDecimalFormatter(forNumber: strippedNumberString)
+        var number = numberFormatter.number(from: strippedNumberString)
+        
+        if !isUserEntry && number?.doubleValue.truncatingRemainder(dividingBy: 1) == 0 {
+            // if we have a whole number, then do not show .0
+            numberFormatter.maximumFractionDigits = 0
+            number = numberFormatter.number(from: strippedNumberString)
         }
+        if let decimalNumber = number,
+            let decimalString = numberFormatter.string(from: decimalNumber),
+            !isUserEntry || (isUserEntry && numberString.count <= maximumCharacterCount(forNumberString: numberString)) { // we stop user from entering more characters conditionally
+            text = decimalString
+        }
+    }
+    
+    
+    /// Maxmimum character count depends on the type of number we have. We allow more characters if , or - is present
+    ///
+    /// - Parameter number: Number that is being used to decide if we have hit maxmimum character count or not
+    /// - Returns: Int
+    private func maximumCharacterCount(forNumberString number:String) -> Int {
+        
+        let maximumCount: Int
+        
+        if number.contains("-") {
+            maximumCount = 12
+        } else if number.contains(",") {
+            maximumCount = 11
+        } else {
+            maximumCount = 10
+        }
+        return maximumCount
+    }
+    
+    
+    /// Adjusts the decimal formatter maxmimum fraction digits allowed based on how many whole numbers are present
+    ///
+    /// - Parameter number: Number that could contain fraction digits
+    /// - Returns: Number formatter with adjusted maximumFractionDigits
+    private func adjustedDecimalFormatter(forNumber number:String) -> NumberFormatter {
+        
+        let numberFormatter = NumberOutputLabel.decimalFormatter
+        
+        let decimalSplitNumber = number.components(separatedBy: ".")
+        if decimalSplitNumber.count > 1,
+            let wholeNumber = decimalSplitNumber.first,
+            wholeNumber.count > 1 {
+            numberFormatter.maximumFractionDigits = numberFormatter.maximumFractionDigits - wholeNumber.count
+        }
+        return numberFormatter
     }
     
     /// Strips commas from a string
