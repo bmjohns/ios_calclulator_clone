@@ -19,6 +19,7 @@
 * Built in Swift 4
 * Supports iOS 10+
 * Tested in iPhone, 7, 8, 7plus, 8plus
+* UI tests exist to check that the output and UI match iphone stock app
 
 #### Open Source Dependencies ####
 * None

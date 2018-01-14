@@ -128,13 +128,7 @@ final class NumberOutputLabel: UILabel {
             let formattedString = scientificValue
             text = formattedString
         }
-    }
-    
-    
-    /// Conditionally sets the text for decimal format
-    ///
-    /// - Parameter number: NSNumber that should be set in decimal format
-    
+    }    
     
     /// Conditionally sets the text for decimal format
     ///
