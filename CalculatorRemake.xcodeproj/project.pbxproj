@@ -161,8 +161,6 @@
 		293E377B200729BC00BCCCDB /* Calculation Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				293E377C20072A1600BCCCDB /* Operation.swift */,
-				29C046DF2007F6CC0019ED68 /* UtilityOperation.swift */,
 				293E378320072BB800BCCCDB /* CalculationHandler.swift */,
 			);
 			path = "Calculation Handlers";
@@ -171,6 +169,8 @@
 		29C046E12007FBB40019ED68 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				293E377C20072A1600BCCCDB /* Operation.swift */,
+				29C046DF2007F6CC0019ED68 /* UtilityOperation.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
