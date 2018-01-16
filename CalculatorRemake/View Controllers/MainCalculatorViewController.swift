@@ -104,7 +104,8 @@ class MainCalculatorViewController: UIViewController {
         
         selectNewButton(nil)
         
-        if let numberString = sender.titleLabel?.text {
+        if let numberString = sender.titleLabel?.text,
+            entryLabel.text?.contains(".") == false { // Do not allow more than 1 decimal
             if let entryLabelText = entryLabel.text {
                 entryLabel.text = entryLabelText + numberString
             } else {
